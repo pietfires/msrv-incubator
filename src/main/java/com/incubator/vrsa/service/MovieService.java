@@ -52,14 +52,10 @@ public class MovieService {
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-RapidAPI-Host", RAPID_API_HOST);
             headers.set("X-RapidAPI-Key", API_KEY);
-            HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
+            HttpEntity<Void> entity = new HttpEntity<>(headers);
 
             ResponseEntity<MovieDetailResponse> response = restTemplate.exchange(detailsURL, HttpMethod.GET, entity, MovieDetailResponse.class);
-            if (response.getStatusCode() == HttpStatus.OK) {
-                return response.getBody();
-            } else {
-                throw new ApiException("Error fetching movies details. HTTP status: " + response.getStatusCode());
-            }
+            return response.getBody();
         } catch (RestClientException e) {
             throw new ApiException("Error fetching movie details: " + e.getMessage());
         }
