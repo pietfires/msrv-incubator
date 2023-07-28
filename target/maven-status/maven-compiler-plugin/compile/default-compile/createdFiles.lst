@@ -1,6 +1,0 @@
-com\incubator\vrsa\controller\Movies.class
-com\incubator\vrsa\models\Movie.class
-com\incubator\vrsa\service\MovieService.class
-com\incubator\vrsa\dtos\MovieDto.class
-com\incubator\vrsa\service\MovieMapper.class
-com\incubator\vrsa\VrsaApplication.class
