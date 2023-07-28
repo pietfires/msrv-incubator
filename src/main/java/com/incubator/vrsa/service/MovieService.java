@@ -16,6 +16,11 @@ public class MovieService {
     private String URL;
     @Value("${rapidapi.apikey}")
     private String API_KEY;
+    @Value("${rapidapi.host}")
+    private String RAPID_API_HOST;
+    @Value("${rapidapi.details.url}")
+    private String DETAIL_URL;
+
     private final RestTemplate restTemplate;
 
     public MovieService(RestTemplateBuilder restTemplateBuilder) {
@@ -25,7 +30,7 @@ public class MovieService {
     public ImdbMovieResponse[] getTopTenMovies() {
         try {
             HttpHeaders headers = new HttpHeaders();
-            headers.set("X-RapidAPI-Host", "imdb-top-100-movies.p.rapidapi.com");
+            headers.set("X-RapidAPI-Host", RAPID_API_HOST);
             headers.set("X-RapidAPI-Key", API_KEY);
             HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
 
@@ -43,9 +48,9 @@ public class MovieService {
     public MovieDetailResponse getMoviePlot(String id) {
 
         try {
-            String detailsURL = String.format("https://imdb-top-100-movies.p.rapidapi.com/%s", id);
+            String detailsURL = String.format(DETAIL_URL, id);
             HttpHeaders headers = new HttpHeaders();
-            headers.set("X-RapidAPI-Host", "imdb-top-100-movies.p.rapidapi.com");
+            headers.set("X-RapidAPI-Host", RAPID_API_HOST);
             headers.set("X-RapidAPI-Key", API_KEY);
             HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
 
