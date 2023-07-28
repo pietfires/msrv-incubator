@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MovieMapper {
-    public MovieDto mapMovie(ImdbMovieResponse imdbMovieResponse) {
+    public MovieDto mapMovie(ImdbMovieResponse imdbMovieResponse, String description) {
         MovieDto responseDto = new MovieDto();
+        responseDto.setTitle(imdbMovieResponse.getTitle());
+        responseDto.setImageUrl(imdbMovieResponse.getImage());
         responseDto.setId(imdbMovieResponse.getId());
-        responseDto.setRating(imdbMovieResponse.getMovieRating());
+        responseDto.setPlot(description);
         return responseDto;
     }
 }

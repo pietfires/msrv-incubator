@@ -3,10 +3,13 @@ package com.incubator.vrsa.dtos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MovieDto {
-   @JsonProperty("id")
+    @JsonProperty("title")
+    private String title;
+    private String plot;
+    @JsonProperty("image")
+    private String imageUrl;
+    @JsonProperty("id")
     private String id;
-   @JsonProperty("rating")
-    private Double rating;
 
     public String getId() {
         return id;
@@ -16,11 +19,27 @@ public class MovieDto {
         this.id = id;
     }
 
-    public Double getRating() {
-        return rating;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRating(Double rating) {
-        this.rating = rating;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getPlot() {
+        return plot;
+    }
+
+    public void setPlot(String plot) {
+        this.plot = plot;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

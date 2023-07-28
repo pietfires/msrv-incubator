@@ -6,10 +6,41 @@ import java.io.Serializable;
 
 public class ImdbMovieResponse implements Serializable {
 
+    @JsonProperty("rank")
+    private int rank;
+    @JsonProperty("title")
+    private String title;
+    @JsonProperty("image")
+    private String image;
     @JsonProperty("id")
     private String id;
-    @JsonProperty("chartRating")
-    private Double movieRating;
+
+    @JsonProperty("thumbnail")
+    private String plot;
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getId() {
         return id;
@@ -19,11 +50,11 @@ public class ImdbMovieResponse implements Serializable {
         this.id = id;
     }
 
-    public Double getMovieRating() {
-        return movieRating;
+    public String getPlot() {
+        return plot;
     }
 
-    public void setMovieRating(Double movieRating) {
-        this.movieRating = movieRating;
+    public void setPlot(String plot) {
+        this.plot = plot;
     }
 }

@@ -2,6 +2,7 @@ package com.incubator.vrsa.controller;
 
 import com.incubator.vrsa.dtos.MovieDto;
 import com.incubator.vrsa.models.ImdbMovieResponse;
+import com.incubator.vrsa.models.MovieDetailResponse;
 import com.incubator.vrsa.service.MovieMapper;
 import com.incubator.vrsa.service.MovieService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,7 +31,8 @@ public class Movies {
         List<MovieDto> movies = new ArrayList<>();
         // map each movie to the specified MovieDto and ensure it only does it for 10 movies
         for (int i =0; i< 10 && i < imdbResponse.length; i++){
-            movies.add(movieMapper.mapMovie(imdbResponse[i]));
+            MovieDetailResponse mdr = movieService.getMoviePlot(imdbResponse[i].getId());
+            movies.add(movieMapper.mapMovie(imdbResponse[i], mdr.getDescription()));
         }
         return  ResponseEntity.ok(movies);
     }
