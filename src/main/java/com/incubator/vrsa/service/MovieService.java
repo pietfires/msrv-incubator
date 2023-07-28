@@ -3,6 +3,7 @@ package com.incubator.vrsa.service;
 import com.incubator.vrsa.exceptions.ApiException;
 import com.incubator.vrsa.models.ImdbMovieResponse;
 import com.incubator.vrsa.models.MovieDetailResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class MovieService {
-
-    private final String URL = "https://imdb-top-100-movies.p.rapidapi.com/";
-    private final String API_KEY = "";
+    @Value("${imdb.url}")
+    private String URL;
+    @Value("${rapidapi.apikey}")
+    private String API_KEY;
     private final RestTemplate restTemplate;
 
     public MovieService(RestTemplateBuilder restTemplateBuilder) {
