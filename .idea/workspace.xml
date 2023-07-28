@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3e4ae73-2d93-436e-ac7a-07bece146714" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/incubator/vrsa/config/ApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/incubator/vrsa/controller/HelloWorld.java" afterDir="false" />
+    <list default="true" id="c3e4ae73-2d93-436e-ac7a-07bece146714" name="Changes" comment="Add two end point. One GET (To return a success message from a bean) and one POST (To return a message passed in via a param)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/kerev-master" />
+        <entry key="$PROJECT_DIR$" value="feature/kerev-feature-1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,6 +39,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2T9CI4plh3v8Hrw8qSkrcPMSV7B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,7 +49,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/kerev.reddy/Documents/Development/Vitality/msrv-incubator"
+    "last_opened_file_path": "C:/Users/kerev.reddy/Documents/Development/Vitality/msrv-incubator",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RunManager">
@@ -104,6 +100,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.VrsaApplication" />
+        <item itemvalue="Application.VrsaApplication" />
+        <item itemvalue="Application.VrsaApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -123,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690458816920</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add two end point. One GET (To return a success message from a bean) and one POST (To return a message passed in via a param)">
+      <created>1690461319753</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690461319753</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +144,27 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Task 1 - Complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task 1 - Complete" />
+    <MESSAGE value="Add two end point. One GET (To return a success message from a bean) and one POST (To return a message passed in via a param)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add two end point. One GET (To return a success message from a bean) and one POST (To return a message passed in via a param)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/incubator/vrsa/service/MovieService.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/incubator/vrsa/controller/Movies.java</url>
+          <line>27</line>
+          <properties class="com.incubator.vrsa.controller.Movies" method="getTopMovies">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
