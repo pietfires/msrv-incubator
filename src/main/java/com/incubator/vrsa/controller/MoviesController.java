@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/movies")
-public class Movies {
+public class MoviesController {
 
     @Autowired
     private MovieMapper movieMapper;
@@ -30,10 +30,10 @@ public class Movies {
         ImdbMovieResponse[] imdbResponse = movieService.getTopTenMovies();
         List<MovieDto> movies = new ArrayList<>();
         // map each movie to the specified MovieDto and ensure it only does it for 10 movies
-        for (int i =0; i< 10 && i < imdbResponse.length; i++){
+        for (int i = 0; i < 10 && i < imdbResponse.length; i++) {
             MovieDetailResponse mdr = movieService.getMoviePlot(imdbResponse[i].getId());
             movies.add(movieMapper.mapMovie(imdbResponse[i], mdr.getDescription()));
         }
-        return  ResponseEntity.ok(movies);
+        return ResponseEntity.ok(movies);
     }
 }

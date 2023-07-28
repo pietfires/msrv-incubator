@@ -21,6 +21,7 @@ public class MovieService {
     public MovieService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
+
     public ImdbMovieResponse[] getTopTenMovies() {
         try {
             HttpHeaders headers = new HttpHeaders();
@@ -29,18 +30,19 @@ public class MovieService {
             HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
 
             ResponseEntity<ImdbMovieResponse[]> response = restTemplate.exchange(URL, HttpMethod.GET, entity, ImdbMovieResponse[].class);
-            if(response.getStatusCode() == HttpStatus.OK){
+            if (response.getStatusCode() == HttpStatus.OK) {
                 return response.getBody();
             } else {
                 throw new ApiException("Error fetching movies. HTTP status: " + response.getStatusCode());
             }
-        }catch(RestClientException e){
+        } catch (RestClientException e) {
             throw new ApiException("Error while fetching movies: " + e.getMessage());
         }
     }
-    public MovieDetailResponse getMoviePlot(String id){
 
-        try{
+    public MovieDetailResponse getMoviePlot(String id) {
+
+        try {
             String detailsURL = String.format("https://imdb-top-100-movies.p.rapidapi.com/%s", id);
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-RapidAPI-Host", "imdb-top-100-movies.p.rapidapi.com");
@@ -48,13 +50,13 @@ public class MovieService {
             HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
 
             ResponseEntity<MovieDetailResponse> response = restTemplate.exchange(detailsURL, HttpMethod.GET, entity, MovieDetailResponse.class);
-            if(response.getStatusCode() == HttpStatus.OK){
+            if (response.getStatusCode() == HttpStatus.OK) {
                 return response.getBody();
             } else {
                 throw new ApiException("Error fetching movies details. HTTP status: " + response.getStatusCode());
             }
-        }catch(RestClientException e){
-            throw new ApiException("Error fetching movie details: "+ e.getMessage());
+        } catch (RestClientException e) {
+            throw new ApiException("Error fetching movie details: " + e.getMessage());
         }
     }
 }
