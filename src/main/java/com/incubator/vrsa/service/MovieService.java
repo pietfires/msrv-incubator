@@ -35,11 +35,7 @@ public class MovieService {
             HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
 
             ResponseEntity<ImdbMovieResponse[]> response = restTemplate.exchange(URL, HttpMethod.GET, entity, ImdbMovieResponse[].class);
-            if (response.getStatusCode() == HttpStatus.OK) {
-                return response.getBody();
-            } else {
-                throw new ApiException("Error fetching movies. HTTP status: " + response.getStatusCode());
-            }
+            return response.getBody();
         } catch (RestClientException e) {
             throw new ApiException("Error while fetching movies: " + e.getMessage());
         }
