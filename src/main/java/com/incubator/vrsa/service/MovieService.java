@@ -21,7 +21,7 @@ public class MovieService {
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-RapidAPI-Host", "imdb8.p.rapidapi.com");
-            headers.set("X-RapidAPI-Key", "16d3dd1c5fmsh19f3f0ac5cbab59p1132fajsn0ddf1925a8b7");
+            headers.set("X-RapidAPI-Key", "");
             HttpEntity<Void> entity = new HttpEntity<>(headers); // No request body for a GET request
 
             ResponseEntity<ImdbMovieResponse[]> response = restTemplate.exchange(URL, HttpMethod.GET, entity, ImdbMovieResponse[].class);
