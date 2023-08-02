@@ -40,7 +40,7 @@ public class MoviesController {
     @Operation(summary = "Get top 10 movies from IMDb API")
     @GetMapping("/top-movies")
 
-    public ResponseEntity<List<MovieDto>> getTopMovies(@RequestParam(value = "default", required = false) String titleSearch) throws MovieServiceException {
+    public ResponseEntity<List<MovieDto>> getTopMovies(@RequestParam(required = false) String titleSearch) throws MovieServiceException {
 
         ImdbMovieResponse[] imdbResponse = movieService.getTopTenMovies();
         List<Future<MovieDto>> futures = new ArrayList<>();
@@ -64,7 +64,7 @@ public class MoviesController {
                 throw new MovieServiceException("Unable to get movie list from server", e.getCause());
             }
         }
-        if (titleSearch == null || titleSearch.equals("default")) {
+        if (titleSearch == null) {
             return ResponseEntity.ok(movies);
         } else {
             List<MovieDto> filteredMovieList = movies.stream()
