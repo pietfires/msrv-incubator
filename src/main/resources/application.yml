@@ -18,6 +18,9 @@ imdb:
 rapidapi.details:
   url: https://imdb-top-100-movies.p.rapidapi.com/%s
 
+hazelcast:
+  movies:
+    ttl: 0
 ---
 
 spring:
@@ -27,6 +30,9 @@ imdb:
 rapidapi.details:
   url: https://imdb-top-100-movies.p.rapidapi.com/%s
 
+hazelcase:
+  movies:
+    ttl: 60
 ---
 
 spring:
@@ -35,3 +41,7 @@ imdb:
   url: https://imdb-top-100-movies.p.rapidapi.com/
 rapidapi.details:
   url: https://imdb-top-100-movies.p.rapidapi.com/%s
+
+hazelcast:
+  movies:
+    ttl: 300
