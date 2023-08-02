@@ -2,6 +2,7 @@ package com.incubator.vrsa;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.incubator.vrsa.controller.MoviesController;
@@ -81,5 +82,36 @@ public class MovieControllerTest {
         Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         List<MovieDto> movies = responseEntity.getBody();
         Assert.assertEquals(10, movies.size());
+    }
+
+    @Test
+    public void testGetTopMoviesWithFilter() throws Exception {
+        when(movieService.getTopTenMovies()).thenReturn(imdbMovieResponses);
+
+        for (int i = 0; i < 10; i++) {
+            MovieDetailResponse movieDetailResponse = new MovieDetailResponse();
+            movieDetailResponse.setDescription("description" + i);
+            movieDetailResponse.setId("id" + i);
+            when(movieService.getMoviePlot("id" + i)).thenReturn(movieDetailResponse);
+
+            when(movieMapper.mapMovie(any(ImdbMovieResponse.class), anyString())).thenAnswer(invocation -> {
+                ImdbMovieResponse response = (ImdbMovieResponse) invocation.getArguments()[0];
+                String plot = (String) invocation.getArguments()[1];
+
+                MovieDto movieDto = new MovieDto();
+                movieDto.setId(response.getId());
+                movieDto.setPlot(plot);
+                movieDto.setImageUrl(response.getImage());
+                movieDto.setTitle(response.getTitle());
+
+                return movieDto;
+            });
+
+        }
+
+        ResponseEntity<List<MovieDto>> responseEntity = movieController.getTopMovies("title1");
+        Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        List<MovieDto> movies = responseEntity.getBody();
+        Assert.assertEquals(1, movies.size());
     }
 }
