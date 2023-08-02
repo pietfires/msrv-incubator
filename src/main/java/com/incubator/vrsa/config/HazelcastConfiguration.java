@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class HazelcastConfiguration {
     @Value("${hazelcast.movies.ttl}")
     private int timeToLiveSeconds;
+
     @Bean
     public Config hazelcastConfig() {
         return new Config()
