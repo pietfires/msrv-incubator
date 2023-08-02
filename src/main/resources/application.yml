@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: test
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+rapidapi:
+  apikey: 16d3dd1c5fmsh19f3f0ac5cbab59p1132fajsn0ddf1925a8b7
+  host: imdb-top-100-movies.p.rapidapi.com
+
+imdb:
+  url: https://imdb-top-100-movies.p.rapidapi.com/
+
+rapidapi.details:
+  url: https://imdb-top-100-movies.p.rapidapi.com/%s
+
+hazelcast:
+  movies:
+    ttl: 0
+---
+
+spring:
+  profiles: test
+imdb:
+  url: https://imdb-top-100-movies.p.rapidapi.com/
+rapidapi.details:
+  url: https://imdb-top-100-movies.p.rapidapi.com/%s
+
+hazelcase:
+  movies:
+    ttl: 60
+---
+
+spring:
+  profiles: deployed
+imdb:
+  url: https://imdb-top-100-movies.p.rapidapi.com/
+rapidapi.details:
+  url: https://imdb-top-100-movies.p.rapidapi.com/%s
+
+hazelcast:
+  movies:
+    ttl: 300
