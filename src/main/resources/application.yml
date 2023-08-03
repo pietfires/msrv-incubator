@@ -30,7 +30,7 @@ imdb:
 rapidapi.details:
   url: https://imdb-top-100-movies.p.rapidapi.com/%s
 
-hazelcase:
+hazelcast:
   movies:
     ttl: 60
 ---
