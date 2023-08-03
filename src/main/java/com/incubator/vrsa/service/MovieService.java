@@ -48,7 +48,7 @@ public class MovieService {
 
                 ResponseEntity<ImdbMovieResponse[]> response = restTemplate.exchange(URL, HttpMethod.GET, entity, ImdbMovieResponse[].class);
                 var movies = response.getBody();
-                cache.put("movies", movies );
+                cache.put("movies", movies);
                 return movies;
             } catch (RestClientException e) {
                 throw new ApiException("Error while fetching movies: " + e.getMessage());

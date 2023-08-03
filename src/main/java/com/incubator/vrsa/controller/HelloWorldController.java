@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/hello-world")
-public class HelloWorld {
+public class HelloWorldController {
 
     private final String successMsg;
 
-    public HelloWorld(String successMsg){
+    public HelloWorldController(String successMsg){
         this.successMsg = successMsg;
     }
     @Operation(summary = "Get injected bean success message")
